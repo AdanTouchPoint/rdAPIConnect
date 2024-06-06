@@ -2,9 +2,9 @@ import { NextResponse } from 'next/server';
 import fetch from 'node-fetch';
 
 export async function GET(request) {
-    const { searchParams } = new URL(request.url);
-    const start_date = searchParams.get('start_date');
-    const end_date = searchParams.get('end_date');  
+  const { searchParams } = new URL(request.url);
+  const start_date = searchParams.get('start_date');
+  const end_date = searchParams.get('end_date');  
 try {
   const response = await fetch(`https://api.rd.services/platform/analytics/emails?start_date=${start_date}&end_date=${end_date}`, {
     method: 'GET',
@@ -19,6 +19,6 @@ try {
   const data = await response.json();
   return NextResponse.json(data);
 } catch (error) {
-  res.status(500).send(error.message);
+  response.status(500).send(error.message);
 }
 }

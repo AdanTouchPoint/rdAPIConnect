@@ -4,7 +4,7 @@ import StartDateInput from './StartDateInput';
 import EndDateInput from './EndDateInput';
 import {selectAPICall} from '../lib/utilities';
 import OptionList from './OptionList';
-import {createSheet} from '../lib/utilities';
+import XLSDownloader from './XLSDownloader';
 export default function MainForm () {
     const options = ["Email Marketing","Email via Automation Flow","Sales funnel","Conversion Assets"]
     const [startDateSelected,setStartDateSelected]= useState('')
@@ -14,10 +14,8 @@ export default function MainForm () {
     const next = async () => {
         console.log(selectedOption,startDateSelected,endDateSelected)
         const data = await selectAPICall(selectedOption,startDateSelected,endDateSelected,setDataRender)
-        const payload = await data.emails  
-        setDataRender([payload])
-        const createSheets = await createSheet(setDataRender)
-        console.log(createSheets)
+        const payload = await data?.emails  
+        setDataRender(payload)
     }
   return (
     <>
@@ -38,7 +36,7 @@ export default function MainForm () {
         <button onClick={next}>Buscar</button>
     </div>
     <div>
-        {dataRender && console.log('here')}
+        {dataRender.length > 0 && <XLSDownloader dataRender={dataRender}/>}
     </div>
     </>
   )
