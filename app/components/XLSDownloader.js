@@ -2,7 +2,6 @@ import React from 'react';
 import ExcelJS from 'exceljs';
 
 const XLSDownloader = ({ dataRender, fileName = 'data.xlsx' }) => {
-    console.log(dataRender)
     const handleDownload = async () => {
     const workbook = new ExcelJS.Workbook();
     const worksheet = workbook.addWorksheet('Sheet1');
