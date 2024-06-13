@@ -1,3 +1,4 @@
+import renewToken from '@/app/lib/renewToken';
 import { NextResponse } from 'next/server';
 import fetch from 'node-fetch';
 
@@ -13,12 +14,17 @@ try {
       'Content-Type': 'application/json',
     },
   });
-  if (!response.ok) {
-    throw new Error('Network response was not ok ' + response.statusText);
+  console.log(response.status )
+
+  if (response.status === 401) {
+    // se hace llamada para generar nuevo token
+   return renewToken(start_date,end_date)
+    //retorna token nuevo 
+    //se reintena la peticion con token nuevo
   }
-  const data = await response.json();
+  const data = await response?.json();
   return NextResponse.json(data);
 } catch (error) {
-  response.status(500).send(error.message);
+  return NextResponse.json(error);
 }
 }

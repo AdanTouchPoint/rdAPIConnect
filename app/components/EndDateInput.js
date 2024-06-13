@@ -16,7 +16,6 @@ const EndDateInput = ({setEndDateSelected, endDateSelected}
         value={endDateSelected}
         onChange={handleDateChange}
       />
-      {endDateSelected && <p>Fecha seleccionada: {endDateSelected}</p>}
     </div>
   );
 };

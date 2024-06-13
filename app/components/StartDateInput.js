@@ -13,7 +13,6 @@ const StartDateInput = ({setStartDateSelected, startDateSelected}) => {
         value={startDateSelected}
         onChange={handleDateChange}
       />
-      {startDateSelected && <p>Fecha seleccionada: {startDateSelected}</p>}
     </div>
   );
 };

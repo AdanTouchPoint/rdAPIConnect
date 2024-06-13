@@ -12,9 +12,9 @@ const emailMarketing = async (
     },
   };
   const data = await fetch(url, options)
-    .then((res) => res.json())
-    .catch((err) => console.error("error:" + err));
-  return data.emails;
+  .then((res) => res.json())
+  .catch((err) => console.error("error:" + err));
+  return data?.emails;
 };
 
 const automationFlow = async (
@@ -33,7 +33,7 @@ const automationFlow = async (
   const data = await fetch(url, options)
     .then((res) => res.json())
     .catch((err) => console.error("error:" + err));
-  return data.workflow_email_statistics;
+  return data?.workflow_email_statistics;
 };
 
 const conversionAsset = async (
@@ -52,7 +52,7 @@ const conversionAsset = async (
   const data = await fetch(url, options)
     .then((res) => res.json())
     .catch((err) => console.error("error:" + err));
-  return data.conversions;
+  return data?.conversions;
 };
 
 export { emailMarketing, automationFlow, conversionAsset };

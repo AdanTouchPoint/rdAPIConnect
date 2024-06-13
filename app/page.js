@@ -1,3 +1,4 @@
+import './globals.css'
 import MainPage from './components/MainPage'
 export default function Home() {
   return (
