@@ -7,14 +7,7 @@ export async function GET(request) {
     const { searchParams } =  new URL(request.url);
     const start_date = await searchParams.get("start_date");
     const end_date = await  searchParams.get("end_date");
-    const campaign_id = await searchParams.get("id");
-    let url
-    if (!campaign_id) {
-    url = `${URLs.emailMarketingBaseUrl}start_date=${start_date}&end_date=${end_date}`
-    }
-    if (campaign_id) {
-    url = `${URLs.emailMarketingBaseUrl}start_date=${start_date}&end_date=${end_date}&campaign_id=${campaign_id}`
-    }
+    const url = `${URLs.emailMarketingBaseUrl}start_date=${start_date}&end_date=${end_date}`
   try {
     const token =  await renewToken();
     const response = await fetch(

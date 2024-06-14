@@ -7,15 +7,7 @@ export async function GET(request) {
   const { searchParams } = new URL(request.url);
   const start_date = searchParams.get('start_date');
   const end_date = searchParams.get('end_date');
-  const workflow_id = await searchParams.get("id");
-  console.log(workflow_id)
-  let url
-  if (!workflow_id) {
-  url = `${URLs.workFlowBaseUrl}start_date=${start_date}&end_date=${end_date}`
-  }
-  if (workflow_id) {
-  url = `${URLs.workFlowBaseUrl}start_date=${start_date}&end_date=${end_date}&workflow_id=${workflow_id}`
-  }
+  const url = `${URLs.workFlowBaseUrl}start_date=${start_date}&end_date=${end_date}` 
 try {
   const token =  await renewToken();
   const response = await fetch(

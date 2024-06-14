@@ -7,14 +7,7 @@ export async function GET(request) {
   const { searchParams } = new URL(request.url);
   const start_date = searchParams.get('start_date');
   const end_date = searchParams.get('end_date');
-  const asset_id = await searchParams.get("id");
-  let url
-  if (!asset_id) {
-  url = `${URLs.assetsBaseUrl}start_date=${start_date}&end_date=${end_date}`
-  }
-  if (asset_id) {
-  url = `${URLs.assetsBaseUrl}start_date=${start_date}&end_date=${end_date}&asset_id=${asset_id}`
-  }  
+  const url = `${URLs.assetsBaseUrl}start_date=${start_date}&end_date=${end_date}`
 try {
   const token =  await renewToken();
   const response = await fetch(url, 
