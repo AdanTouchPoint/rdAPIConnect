@@ -3,13 +3,13 @@ import "./item-list.css";
 import XLSDownloader from '../XLSDownloader';
 
 
-const ItemsList = ({dataRender,setId,startDateSelected,endDateSelected,selectedOption,id}) => {
+const ItemsList = ({dataRender,setId,startDateSelected,endDateSelected,selectedOption,id,hideItems}) => {
 const data = dataRender
 const renderProperty = (property, value) => {
     if (typeof value === 'object' && value !== null) {
       if (Array.isArray(value)) {
         return (
-          <div key={property} style={{ paddingLeft: '15px', borderLeft: '2px solid #eee' }}>
+          <div key={property} >
             <strong>{property}:</strong>
             {value.map((item, index) => (
               <div key={index}>
@@ -20,7 +20,7 @@ const renderProperty = (property, value) => {
         );
       } else {
         return (
-          <div key={property} style={{ paddingLeft: '15px', borderLeft: '2px solid #eee' }}>
+          <div key={property}>
             <strong>{property}:</strong>
             {Object.keys(value).map((subProperty) => (
               <div key={subProperty}>
@@ -38,7 +38,7 @@ const renderProperty = (property, value) => {
     );
   };
   return (
-    <div className='container' >
+    <div hidden={hideItems}>
       {data?.map((item, index) => (
         <div className={'item'} key={index} >
           {Object.keys(item).map((property) => (

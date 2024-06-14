@@ -32,6 +32,22 @@ margin: '10px 0'
 }
 /* Estilo del contenedor principal */
 .container {
+
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+}
+.list{
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 800px;
+  max-height: 800px;
+  overflow-y: scroll
+}
+.form{
   background: #fff;
   padding: 20px;
   border-radius: 8px;
