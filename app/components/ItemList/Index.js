@@ -1,8 +1,6 @@
 import React from 'react';
 import "./item-list.css";
 import XLSDownloader from '../XLSDownloader';
-
-
 const ItemsList = ({dataRender,setId,startDateSelected,endDateSelected,selectedOption,id,hideItems}) => {
 const data = dataRender
 const renderProperty = (property, value) => {

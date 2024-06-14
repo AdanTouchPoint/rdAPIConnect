@@ -7,7 +7,7 @@ import OptionList from './OptionList';
 import XLSDownloader from './XLSDownloader';
 import ItemsList from './ItemList/Index';
 import Spinner from './Spinner/Index';
-import '../globals.css'
+
 
 export default function MainForm () {
     const options = ["Email Marketing","Email via Automation Flow","Conversion Assets"]

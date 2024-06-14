@@ -12,7 +12,6 @@
   padding: 0;
   margin: 0;
 }
-
 html,
 /* Estilo general del cuerpo */
 body {
@@ -31,11 +30,15 @@ padding: '10px';
 margin: '10px 0'
 }
 /* Estilo del contenedor principal */
-.container {
-
-  text-align: center;
+.container-items{
   display: flex;
   flex-direction: row;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
 }
 .list{
   background: #fff;
@@ -45,7 +48,8 @@ margin: '10px 0'
   text-align: center;
   max-width: 800px;
   max-height: 800px;
-  overflow-y: scroll
+  overflow-y: scroll;
+  margin: 30px;
 }
 .form{
   background: #fff;

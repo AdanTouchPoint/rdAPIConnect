@@ -23,6 +23,7 @@ const automationFlow = async (
   endDateSelected,
   id
 ) => {
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:3000/"
   const url = `${baseUrl}api/proxy/automation-flow?start_date=${startDateSelected}&end_date=${endDateSelected}`;
   const options = {
     method: "GET",
@@ -42,6 +43,7 @@ const conversionAsset = async (
   endDateSelected,
   id
 ) => {
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:3000/"
   const url = `${baseUrl}api/proxy/conversion-asset?start_date=${startDateSelected}&end_date=${endDateSelected}`;
   const options = {
     method: "GET",
