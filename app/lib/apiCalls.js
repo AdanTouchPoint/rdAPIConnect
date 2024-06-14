@@ -1,9 +1,9 @@
 const emailMarketing = async (
   startDateSelected,
   endDateSelected,
-  setDataRender
+  id
 ) => {
-  const url = `http://localhost:3000/api/proxy/email-marketing?start_date=${startDateSelected}&end_date=${endDateSelected}`;
+  const url = `http://localhost:3000/api/proxy/email-marketing?start_date=${startDateSelected}&end_date=${endDateSelected}&id=${id ? id : ''}`;
   const options = {
     method: "GET",
     redirect: "follow",
@@ -20,9 +20,9 @@ const emailMarketing = async (
 const automationFlow = async (
   startDateSelected,
   endDateSelected,
-  setDataRender
+  id
 ) => {
-  const url = `http://localhost:3000/api/proxy/automation-flow?start_date=${startDateSelected}&end_date=${endDateSelected}`;
+  const url = `http://localhost:3000/api/proxy/automation-flow?start_date=${startDateSelected}&end_date=${endDateSelected}&id=${id ? id : ''}`;
   const options = {
     method: "GET",
     redirect: "follow",
@@ -39,9 +39,9 @@ const automationFlow = async (
 const conversionAsset = async (
   startDateSelected,
   endDateSelected,
-  setDataRender
+  id
 ) => {
-  const url = `http://localhost:3000/api/proxy/conversion-asset?start_date=${startDateSelected}&end_date=${endDateSelected}`;
+  const url = `http://localhost:3000/api/proxy/conversion-asset?start_date=${startDateSelected}&end_date=${endDateSelected}&id=${id ? id : ''}`;
   const options = {
     method: "GET",
     redirect: "follow",

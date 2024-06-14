@@ -1,17 +1,17 @@
 import React from 'react';
 import ExcelJS from 'exceljs';
-
-const XLSDownloader = ({ dataRender, fileName = 'data.xlsx' }) => {
-    const handleDownload = async () => {
+import { selectAPICall } from '../lib/utilities';
+const XLSDownloader = ({itemtorender, startDateSelected,endDateSelected,selectedOption, fileName = 'data.xlsx' }) => {
+    const handleDownload = async (e) => {
+    const data = await selectAPICall(selectedOption,startDateSelected,endDateSelected,e.target.id)
     const workbook = new ExcelJS.Workbook();
     const worksheet = workbook.addWorksheet('Sheet1');
-
     // Agregar encabezados
-    const headers = Object.keys(dataRender[0]);
+    const headers = Object.keys(data[0]);
     worksheet.addRow(headers);
 
     // Agregar filas
-    dataRender.forEach(item => {
+    data.forEach(item => {
       worksheet.addRow(headers.map(header => item[header]));
     });
 
@@ -31,7 +31,11 @@ const XLSDownloader = ({ dataRender, fileName = 'data.xlsx' }) => {
   };
 
   return (
-    <button onClick={handleDownload}>Download Excel</button>
+    <button 
+    id={itemtorender.campaign_id ? itemtorender.campaign_id : itemtorender.workflow_id ? itemtorender.workflow_id : itemtorender.asset_id ? itemtorender.asset_id : null} 
+    onClick={handleDownload}>
+      Download Excel
+    </button>
   );
 };
 

@@ -1,13 +1,13 @@
 import {emailMarketing,automationFlow,conversionAsset} from "./apiCalls";
 
-const selectAPICall = (selectedOption, startDateSelected, endDateSelected,setDataRender) => {
+const selectAPICall = (selectedOption, startDateSelected, endDateSelected,id) => {
   switch (selectedOption) {
     case "Email Marketing":
-      return emailMarketing(startDateSelected, endDateSelected, setDataRender);
+      return emailMarketing(startDateSelected, endDateSelected, id);
     case "Email via Automation Flow":
-      return automationFlow(startDateSelected, endDateSelected, setDataRender);
+      return automationFlow(startDateSelected, endDateSelected, id);
     case "Conversion Assets":
-      return conversionAsset(startDateSelected, endDateSelected, setDataRender);
+      return conversionAsset(startDateSelected, endDateSelected, id);
     default:
       console.log("Invalid option selected");
       break;
